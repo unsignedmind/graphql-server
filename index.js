@@ -1,8 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server');
 const mongoose = require('mongoose');
-const typeDefs = require('./type-defs/typedef');
+const typeDefs = require('./schema/type-defs');
 const resolvers = require('./resolver/resolver');
-const Book = require('./models/book');
 
 mongoose.connect(
   'mongodb+srv://unsignedOrange:b7LVHaXgrcvqNq2S@cluster0-2yitf.mongodb.net/test?retryWrites=true&w=majority',
