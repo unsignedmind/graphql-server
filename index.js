@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 const mongoose = require('mongoose');
-const typeDefs = require('./schema/schema');
+const typeDefs = require('./type-defs/typedef');
 const resolvers = require('./resolver/resolver');
 const Book = require('./models/book');
 
@@ -10,14 +10,6 @@ mongoose.connect(
 mongoose.connection.once('open', () => {
   console.log('connected to database');
 });
-
-const books = Book.find({});
-
-const gresolvers = {
-  Query: {
-    books: () => books,
-  },
-};
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
